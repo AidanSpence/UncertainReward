@@ -150,8 +150,29 @@ multi_questions = [["What year was the very first model of the iPhone released?"
 ["Which auto brand was the first to offer seat belts?","Volkswagen","Nash Motors","Detroit Automobile Company",1],
 ["What or who is the Ford Mustang named after?","A political leader","A building","A fighter plane from WWII",3]]
 
-question_set_one = []
-question_set_two = []
+question_set_one = [["Brass gets discoloured in air because of the presence of which gas?","hydrogensulphide"],
+["Which non metal remains a liquid at room temperature?","bromine"],
+["Chlorophyll is a naturally occurring chelate compound in which the central metal is what?","magnesium"],
+["What is the black substance inside a pencil?","graphite"],
+["Which metal can form an amalgam with almost all other metals?","mercury"],
+["The chemical formula for water is?","h2o"],
+["The gas usually filled in an electric bulb is?","nitrogen"],
+["Washing powder is the common name for","sodium carbonate"],
+["The hardest substance available on earth is?","diamond"],
+["The variety of coal in which the deposit contains recognisable traces of the original plant material is?","peat"],
+["",""],
+["",""],
+["",""],
+["",""],
+["",""],
+["",""],
+["",""],
+["",""],
+["",""],
+["",""],
+["",""],
+["",""],]
+question_set_two = [[]]
 
 from random import randint
 import time
@@ -177,7 +198,11 @@ board = [["MMM"],
 ["---"],
 ["---"],
 ["WWW"]]
-chasers = [["The Wild Animal",60],["The Night Annihilator",69],["The Tutor", 45],["The Blood-stained", 96],["The Hazard", 74]]
+chasers = [["The Wild Animal",60],
+["The Night Annihilator",69],
+["The Tutor", 45],
+["The Blood-stained", 96],
+["The Hazard", 74]]
 
 def menu(choice):
     while choice is None:
@@ -315,6 +340,7 @@ def test():
     cash = 9000
     password = input("Enter Password ")
     if password == "gaming":
+        # 2 minutes
         print(f"""This is the final chase
 You have the chance to get away with ${cash}""")
         print("A: For set A\nB: For set B")
