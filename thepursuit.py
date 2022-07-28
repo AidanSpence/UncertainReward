@@ -157,22 +157,25 @@ question_set_one = [["Brass gets discoloured in air because of the presence of w
 ["Which metal can form an amalgam with almost all other metals?","mercury"],
 ["The chemical formula for water is?","h2o"],
 ["The gas usually filled in an electric bulb is?","nitrogen"],
-["Washing powder is the common name for","sodium carbonate"],
+["Washing powder is the common name for","sodiumcarbonate"],
 ["The hardest substance available on earth is?","diamond"],
 ["The variety of coal in which the deposit contains recognisable traces of the original plant material is?","peat"],
-["",""],
-["",""],
-["",""],
-["",""],
-["",""],
-["",""],
-["",""],
-["",""],
-["",""],
-["",""],
-["",""],
-["",""],]
-question_set_two = [[]]
+["Tetraethyl lead is used as?","petroladditive"],
+["The inert gas which is substituted for nitrogen used by deep sea divers for breathing, is?","helium"],
+["The average salinity of sea water is?","3.5%"],
+["When an iron nail rusts, what oxide is formed?","ironoxide"],
+["Galvanised iron sheets have a coating of what?","zinc"],
+["The group of metals Fe, Co, and Ni are called what?","transitionmetals"],
+["The element common to all acids is?","hydrogen"],
+["Non stick cooking utensils are coated with?","teflon"],
+["Carbon, diamond and graphite are together called?","allotropes"],
+["Potassium nitrate is commonly used in?","fertiliser"],
+["to cardonate soda water what is used?","cardon dioxide"]]
+["The most soluble compound in water is?","ethyleneglycol"]
+["What element was discovered first in the chromospheres of the sun?","helium"]
+["sodium metal is kept under?","kerosene"]
+["which mineral is radium obtained from?","uranium"]
+question_set_two = [["",""]]
 
 from random import randint
 import time
@@ -223,6 +226,15 @@ def int_input(prompt):
             print("Please enter a integer")
 
 def play():
+    board = [["MMM"],
+["---"],
+["---"],
+["---"],
+["---"],
+["---"],
+["---"],
+["---"],
+["WWW"]]
     minute = 60
     start_time = time.time()
     points = 0
