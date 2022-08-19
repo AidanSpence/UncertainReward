@@ -1,6 +1,6 @@
 quick_questions = [["Which of these games includes the phrase “Do not pass go, do not collect $200”?","monopoly"],
 ["The movie “Happy Feet” features what animals?","penguins","penguin"],
-['What sport is featured in the video game “FIFA”?',"football"],
+['What sport is featured in the video game “FIFA”?',"football","soccer"],
 ["Which mammal has no vocal cords?","giraffe","giraffes"],
 ["How many eyes does a bee have?","5","five"],
 ["What was the verdict in the O.J. Simpson murder trial?","notguilty"],
@@ -12,13 +12,13 @@ quick_questions = [["Which of these games includes the phrase “Do not pass go,
 ["Which actor appeared in films “Face Off” and “Ghost Rider”?","nicholascage"],
 ["Which Williams sister has won more Grand Slam titles?","serena"],
 ["What’s the primary ingredient in hummus?","chickpeas","chickpea"],
-["Who wrote “Old Man and The Sea” and is considered one of the greatest writers of the 20thcentury?","ernesthemingway"],
+["What meat is used in a shepherd's pie?","lamb"],
 ["Who was the messenger of the gods?","hermes"],
-["The American designer born in 1939 as Ralph Lifshitz is better known as what?","ralphlauren"],
-["Who did Forbes name the youngest self-made billionaire in 2019?","kyliejenner"],
+["In what capital would you find The Little Mermaid statue?","copenhagen"],
+["What countrys flag is the only flag that does not have four sides?","nepal"],
 ["Which continent is the largest?","asia"],
 ["Which element is said to keep bones strong?","calcium"],
-["What does BMW stand for (in English)?","bavarianmotorworks"],
+["How many faces does a Dodecahedron have?","12","twelve"],
 ["What is the name of the home of the Greek Gods?","olympus"],
 ["Which kind of alcohol is Russia notoriously known for?","vodka"],
 ["Which country did AC/DC originate in?","australia"],
@@ -26,18 +26,18 @@ quick_questions = [["Which of these games includes the phrase “Do not pass go,
 ["Which American president was involved in the Watergate scandal?","nixon"],
 ["Donald Trump and which North Korean leader are known to trade threats over the internet?","kimjongun"],
 ["During which Holiday is the Nutchracker primarily performed?","christmas"],
-["What was the name of the actor who played Jack Dawson in Titanic?","leonardodicaprio"],
+["Which country features a shipwreck on its national flag?","bemuda"],
 ["Which popular TV show featured house Targaryen and Stark?","gameofthrones"],
-["What was the name of the family who starred in 7th Heaven?","camdens"],
+["Which is the only body part that is fully grown from birth?","eyes","eye"],
 ["How many Grammys does John Legend have?","ten","10"],
 ["Which British girl group had a member by the name of Mel B?","spicegirls"],
-["Which song by Luis Fonsi and Daddy Yankee has the most views (of all time) on YouTube?","despacito"],
-["In what year was the first-ever Wimbledon Championship held?","1877"],
+["Which song by Luis Fonsi and Daddy Yankee has the most views (as of August 2020) on YouTube?","despacito"],
+["How many dots appear on a pair of dice?","42"],
 ["Which racer holds the record for the most Grand Prix wins?","lewishamilton"],
 ["Which is the only day of the week with nine letters in its name?","wednesday"],
 ["By area, which is the largest county in England?","yorkshire"],
-["Auricular muscles are found in which part of the human body?","ear"],
-["Frank Skinner teamed up with which English comedian to write the lyrics to the song 'Three Lions'?","davidbaddiel"],
+["Auricular muscles are found in which part of the human body?","ear","ears"],
+["What is a group of crows called?","murder"],
 ["What is the Capital of Russia?","moscow"],
 ["Which car maker produced the Focus, Mondeo and Fiesta models?","ford"],
 ["Eric Theodore Cartman appears in which animated TV series?","southpark"],
@@ -52,16 +52,16 @@ quick_questions = [["Which of these games includes the phrase “Do not pass go,
 ["How many pockets does a snooker table have?","6","six"],
 ["In Bowling What Is The Term For Knocking Down All Ten Pins With 2 Consecutive Balls?","spare"],
 ["What Surname Has Been Shared By Three Formula One Champions Of The 20th Century?","hill"],
-["Which Game Makes Use Of Hoops","croquet"],
+["Which country invented ice cream?","china"],
 ["What disease commonly spread on pirate ships?","scurvy"],
 ["Who is the Ancient Greek God of the Sun?","apollo"],
 ["What was the name of the crime boss who was head of the feared Chicago Outfit?","alcapone"],
 ["Who has won the most total Academy Awards?","waltdisney"],
 ["How many minutes are in a full week?","10080"],
 ["Which sport is played by the Minnesota Twins?","baseball"],
-["What Did The Inter-Cities Fairs Cup Change It's Name To?","uefacup"],
+["What is the state capital of New York?","albany"],
 ["What was the hybrid pinball/video game in the Pac-Man series?","babypacman"],
-["Who Did Muhammed Ali Fight In 'The Rumble In The Jungle''?","georgeforeman"],
+["Where is Angel Falls, the world’s largest waterfall, located?","venezuela"],
 ["What character has both Robert Downey Jr. and Benedict Cumberbatch played?","sherlockholmes"],
 ["What Is the Mark Behind Which a Dart Player Must Stand Called?","oche"],
 ["Which planet has the most moons?","saturn"],
@@ -80,7 +80,7 @@ quick_questions = [["Which of these games includes the phrase “Do not pass go,
 ["What was the soft drink Pepsi originally introduced as?","bradsdrink"],
 ['When did the website "Facebook" launch?',"2004"],
 ['What was the original name of the search engine "Google"?',"backrub"],
-["What name did the Indians give the black soldiers that were fighting against them in the late 1800s?","buffalosoldiers"],
+["What name did the Indians give the black soldiers that were fighting against them in the late 1800s?","buffalosoldiers","buffalosoldier"],
 ['Before the 19th Century, the "Living Room" was originally called the...',"parlor"],
 ["What year was Queen Elizabeth II born?","1926"],
 ['What is the Romanised Arabic word for "moon"?',"qamar"],
@@ -97,7 +97,7 @@ quick_questions = [["Which of these games includes the phrase “Do not pass go,
 ["What is Sauerkraut made out of?","cabbage"],
 ["Where Did The Mayflower Set Sail From In 1620?","southhampton"],
 ["Who was assassinated on 8th of Dec, 1980, in New York City?","johnlennon"],
-["What planet was 'ALF' from?","melmac"]]
+["What is the national sport of Japan?","sumowrestling"]]
 
 multi_questions = [["What’s the shortcut for the “copy” function on most computers?","ctrl+shift c","ctrl c","alt c",2],
 ["What is the smallest unit of memory?","Yobibits","kilobits","bits",3],
@@ -205,7 +205,7 @@ final_questions = [["Which metal remains a liquid at room temperature?","mercury
 ["The chemical formula for water is?","h2o"],
 ["Washing powder is the common name for","sodiumcarbonate"],
 ["The hardest substance available on earth is?","diamond"],
-["Tetraethyl lead is used as?","petroladditive"],
+["What country drinks the most coffee?","finland"],
 ["The inert gas which is substituted for nitrogen used by deep sea divers for breathing, is?","helium"],
 ["When an iron nail rusts, what oxide is formed?","ironoxide","iron"],
 ["The element common to all acids is?","hydrogen"],
@@ -219,14 +219,14 @@ final_questions = [["Which metal remains a liquid at room temperature?","mercury
 ['Which company designed the "Betamax" video cassette format?',"sony"],
 ["What is the currency of Poland?","zloty"],
 ["Named after the mallow flower, mauve is a shade of what?","purple"],
-["Nephelococcygia is the practice of finding what?","cloudshapes"],
-["Where were the 1992 Olympics held?","barcelona"],
+["Where did sushi originate?","china"],
+["What is the capital of Canada?","ottawa"],
 ["How many referees work a football game?","One","1"],
 ["In ice hockey, what is the equivalent of a rugby scrum?","faceoff"],
 ["How many human players are in a polo team?","four","4"],
-["What Type Of Race Got Its Name From A Short Dash Between 2 Churches?","steeplechase"],
+["What is the tallest type of tree?","redwoods","redwood"],
 ["The Harvard architecture for micro-controllers added which additional bus?","instruction"],
-["What are the base station trackers used for the HTC Vive called?","lighthouse"],
+["What is the only continent with land in all four hemispheres?","africa"],
 ["Which buzzword did Apple Inc. use to describe their removal of the headphone jack?","courage"],
 ["Who patented a steam engine that produced continuous rotary motion?","jameswatt"],
 ["When was the Tamagotchi digital pet released?","1996"],
@@ -240,27 +240,27 @@ final_questions = [["Which metal remains a liquid at room temperature?","mercury
 ["In Formula One what does it mean when they are waving a black flag?","disqualification"],
 ["What Colour Is The 8 Ball In A Game Of Pool?","black"],
 ["How many notes are there on a standard grand piano?","88"],
-["Which Heavyweight Boxer Was Known As The Real Deal?","evanderholyfield"],
+["What is the only edible food that never goes bad?","honey"],
 ["What type of dog is 'Handsome Dan', the mascot of Yale University?","bulldog"],
 ["Which Boys Name Is Also The Name Of The Object Ball In Bowls?","jack"],
 ["What is the world's fastest bird?","peregrinefalcon"],
 ["Which Swimming Stroke Was Introduced Into Competition In 1952","butterfly"],
-["How Many Consecutive Wimbledon Titles Did Bjorn Borg Win?","five","5"],
-["Which Female Tennis Star Was Handed A Two Year Ban After Testing Positive For Cocaine At Wimbledon In 2007?","martinahingis"],
+["What country has the most islands?","sweden"],
+["What planet is closest to the sun?","mercury"],
 ["Kratos is the main character of what video game series?","godofwar"],
 ["How Many Players Are In A Basketball Team?","five","5"],
 ["What arcade game became a hit in 1973?","pong"],
 ['What sport do the following terms belong to - "Tight End & Wide Receiver"?',"americanfootball"],
-["In 1995 Which Formula One Driver Signed For McLaren But Couldn't Fit In The Car?","nigelmansell"],
+["What phone company produced the 3310?","nokia"],
 ["How many players make up a field hockey team?","eleven","11"],
 ["Who is the first gym leader you fight in 'Pokémon' for the Game Boy?","brock"],
 ["What is the symbol for copper?","cu"],
-["Where were the 1920 Olympics held?","belgium"],
-["Which Now Legendary Sports Chant Reached No.1 In 1996","threelions"],
-["Which Shooting Season Begins On The Glorious Twelfth?","grouse"],
-["Which Country Did Chelsea Striker Didier Drogba Represent At International Level?","ivorycoast"],
-["Monza & Silverstone Are Venues For Which Sport?","formulaone"],
-["In Boxing, Fighting With Gloves Became Standard In 1867 After The Formulation Of Which Set Of Rules?","queensbury","queenburyrules"],
+["What is the most consumed manufactured drink in the world?","tea"],
+["What is the world’s best-selling stout beer?","guinness"],
+["The capital of Bulgaria is","sofia"],
+["What is acrophobia a fear of?","flying"],
+["Monza & Silverstone Are Venues For Which Sport?","formulaone","f1"],
+["Where is the strongest human muscle located?","jaw"],
 ["What is The Name Of The Blue Ghost In The Classic 80's Video Game Pac-Man?","inky"],
 ["What is The Name Of The Orange Ghost In The Classic 80's Video Game Pac-Man?","clyde"],
 ["The Solheim Cup Is The Woman's Equivalent Of Which Famous Sporting Cup?","rydercup"],
@@ -268,7 +268,7 @@ final_questions = [["Which metal remains a liquid at room temperature?","mercury
 ["Which Jump Event Did Carl Lewis Specialize In As Well As The Sprint?","longjump"],
 ["What is the heaviest class of weight-lifting?","superheavyweight"],
 ["Chartreuse is a color between yellow and what?","green"],
-["Which Country Hosted The 2004 Summer Olympics?","greece"],
+["What was the first soft drink in space?","cocacola","coke"],
 ["What Was The 9th Century Tax Levied To Fight The Vikings?","danegeld"],
 ["In 1969 Richard Cawston Made A Documentary For The BBC About Which Famous Family?","royalfamily"],
 ["What did Temujin change his name to?","genghiskhan"],
@@ -278,14 +278,14 @@ final_questions = [["Which metal remains a liquid at room temperature?","mercury
 ["Which US state in 1907 was the last to declare Christmas a legal holiday?","oklahoma"],
 ["In a game of netball how many players on a team are allowed To score?","2","two"],
 ["In Which Sport Was Desmond Douglas Britain's Leading Competitor?","tabletennis"],
-["In A Decathlon What Is The First Event?","100metres"],
-["Which Sporting Event Was BBC2's First Ever Colour Transmission In 1967?","wimbledon"],
+["In A Decathlon What Is The First Event?","100metres","100meter"],
+["On what continent would you find the world’s largest desert?","antarctica"],
 ["What is the 'perfect score' in a game of Ten Pin Bowling?","300"],
-["With which sport would you have associated Jocky Wilson?","darts"],
+["With which sport would you have associated Jocky Wilson?","darts","dart"],
 ["With what did cricketer Mansoor Ali Khan Pataudi frequently play within his hands?","glasseye"],
 ["What 3 Letter Word It The Name Given To A Replayed Point In Tennis?","let"],
-["Which Heavyweight Boxer Was Known As The Real Deal?","evanderholyfield","evander"],
-["Which country has the most Trappist breweries?","Belgium"],
+["How many languages are written from right to left?","12"],
+["Which country has the most Trappist breweries?","belgium"],
 ["What does a funambulist walk on?","tightrope"],
 ["Area 51 is in which US state?","nevada"],
 ["On a dartboard, what number is directly opposite No. 1?","19","nineteen"],
@@ -301,11 +301,9 @@ final_questions = [["Which metal remains a liquid at room temperature?","mercury
 ["What is Cynophobia the fear of?","dogs","dog"],
 ["The Flag of the European Union has how many stars on it?","12","twelve"]]
 
-final_chase_answers = ["mercury","graphite","h2o","sodium carbonate","diamond",
-"petrol additive","helium","iron oxide","hydrogen","teflon","fertiliser","carbon dioxide",
-"kerosene","uranium","1970","sony","barcelona","one","faceoff",
-"four","steeple chase","instruction","lighthouse","courage",
-"james watt","1996","body pillow","2012","1995","1982","south america","microsoft","5",
+final_chase_answers = ["mercury","graphite","h2o","sodium carbonate","diamond","helium","iron oxide","hydrogen",
+"teflon","fertiliser","carbon dioxide","kerosene","uranium","1970","sony","one","faceoff",
+"four","instruction","courage","james watt","1996","body pillow","2012","1995","1982","south america","microsoft","5",
 "disqualification","black","evander holyfield","michael owen","jack","uruguay","butterfly",
 "five","five","american football","nigel mansell","eleven","brock",
 "belgium","three lions","grouse","ivory coast","formula one","queensbury","inky","clyde",
@@ -338,7 +336,6 @@ chasers = [["The Wild Animal",76],
 ["The Hazard", 89]]
 final_num = 0
 final_chase_board = [final_num]
-
 def menu(choice):
     while choice is None:
         print("""P: Play
@@ -365,6 +362,9 @@ def play():
     money_choice = None
     print("Welcome to the pursuit")
     while True:
+        if time.time() - start_time > minute:
+            print("out of time")
+            break
         random_quick_question = randint(0,(len(quick_questions)-1))
         while random_quick_question in used_quick_question:
             random_quick_question = randint(0,(len(quick_questions)-1))
@@ -373,10 +373,7 @@ def play():
         print(f"Time: {minute - round(time.time() - start_time)} seconds")
         user_answer = input("").lower().replace(" ","")
         if len(used_quick_question) >= 100:
-            print("you muffin")
-            break
-        if time.time() - start_time > minute:
-            print("out of time")
+            print("Good Job you answers all the questions")
             break
         if user_answer == "p":
             pass
@@ -388,13 +385,15 @@ def play():
             points += 1
         else:
             print("Incorrect")
-    print(points)
+
     if points == 0:
-        points = -5
+        points = len(used_quick_question) - (len(used_quick_question) * 2)
     cash = points * 1000
     player_location = None
+    print(f"You got {points} points")
     while player_location is None:
-        print(f"""A: ${int(cash * 2.5)} 2 away from pursuer
+        print(f"""The Pursuer gives you three options
+A: ${int(cash * 2.5)} 2 away from pursuer
 B: ${cash} 3 away from pursuer
 C: ${int(cash *0.5)} 4 away pursuer""")
         money_choice = input("Enter a Choice: ").lower().strip()
@@ -461,6 +460,9 @@ C: ${int(cash *0.5)} 4 away pursuer""")
         points = 0
         used_final_question = []
         while True:
+            if time.time() - start_time > minute:
+                print("out of time")
+                break
             random_final_question = randint(0,len(final_questions)-1)
             while random_final_question in used_final_question:
                 random_final_question = randint(0,len(final_questions)-1)
@@ -468,9 +470,6 @@ C: ${int(cash *0.5)} 4 away pursuer""")
             print(final_questions[random_final_question][0])
             print(f"Time: {minute - round(time.time() - start_time)} seconds")
             user_answer = input("").lower().replace(" ","")
-            if time.time() - start_time > minute:
-                print("out of time")
-                break
             if user_answer == "p":
                 pass
             elif user_answer == final_questions[random_final_question][1]:
@@ -489,23 +488,23 @@ C: ${int(cash *0.5)} 4 away pursuer""")
         print("pursuers turn")
         print(assinged_chaser)
         chaser_points = 0
-        minute = 120
+        minute = 60
         start_time = time.time()
         used_final_question = []
         while chaser_points < points:
+            if time.time() - start_time > minute:
+                print("out of time")
+                break
             random_final_question = randint(0,(len(final_questions)-1))
             while random_final_question in used_final_question:
                 random_final_question = randint(0,(len(final_questions)-1))
             used_final_question.append(random_final_question)
             print(final_questions[random_final_question][0])
             print(f"Time: {minute - round(time.time() - start_time)} seconds")
-            random_thinking = randint(1,3)
+            random_thinking = randint(3,6)
             time.sleep(random_thinking)
             if len(used_quick_question) >= 100:
-                print("you muffin")
-                break
-            if time.time() - start_time > minute:
-                print("out of time")
+                print("Good Job you answers all the questions")
                 break
             chaser_luck = randint(0,105)
             if chaser_luck <= chasers[chaser_num][1]:
@@ -563,12 +562,18 @@ C: ${int(cash *0.5)} 4 away pursuer""")
             print("CONGRATULATIONS YOU HAVE WON THE PURSUIT")
             print(f"You get ${cash}")
             print("=" * FORMATTING)
+        play_again = input("Do you want to play again (y or n) ")
+        if play_again == "y":
+            print("loading...")
+            play()
+        else:
+            pass
 
 def help():
     option = None
     repeat = True
     while repeat:
-        print("DISCLAMER: THis game is heavily based of The Chase game show")
+        print("DISCLAMER: This game is heavily based of The Chase game show")
         print("""Q: Quick Question Help
 M: multiple Choice Help
 F: Final Pursuit Help
@@ -578,7 +583,7 @@ E: Exit""")
             print("=" * FORMATTING)
             print("""Quick Questions Help:
 Each questions answer will NOT have any words like THE, A, or any special characters
-(e.g -, ", ', ,! ,) You have 60 seconds to answer as many questions as you can
+(e.g -, ", ',! ,) You have 60 seconds to answer as many questions as you can
 Type 'p' to skip a question depending on how many question you
 get right will dictate how much money you will get offered in
 the next round.""")
@@ -592,8 +597,8 @@ Each questions answer will NOT have any words like THE, A, or -
 This is player location = {PLAYER_BOARD_LOCATION}
 This is pursuer location = {CHASER_BOARD_LOCATION}
 This is a empty space = {EMPTY_BOARD_LOCATION}
-['MMM'] is the top of the board and ['WWW'] is the bottom
-This is your goal = ['WWW'] if you get to here without the
+(MMMM) is the top of the board and (WWWW) is the bottom
+This is your goal = (WWWW) if you get to here without the
 purser catching you, you win the money if the purser 
 catches you, you lose the money.""")
             print("=" * FORMATTING)
@@ -616,8 +621,6 @@ def test():
     password = input("Enter Password ").lower().strip()
     if password == "gaming":
         print("no")
-        points = 10
-        chaser_points = 1
         
     else:
         print("Incorrect Password")
