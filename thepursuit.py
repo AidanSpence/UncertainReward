@@ -179,7 +179,7 @@ multi_questions = [["What’s the shortcut for the “copy” function on most c
 ["Which infinity stone was located on Vormir?","Soul Stone","Power Stone","Mind Stone",1],
 ["What is the name of Batman’s butler?","Alfred","Gordon","Damian",1],
 ["How many films did Sean Connery play James Bond in?","Four","Seven","Eight",2],
-["Which Indiana Jones movie was released back in 1984?","Indiana Jones and the Kingdom of the Crystal SKull","Raiders of The Lost Ark","Indian Jones and the Temple of Doom",2],
+["Which Indiana Jones movie was released back in 1984?","The Kingdom of the Crystal Skull","The Raiders of The Lost Ark","The Temple of Doom",2],
 ["How many Lord of the Rings films are there?","Three","Four","One",1],
 ["In what year was the first episode of South Park aired?","1997","1978","2001",1],
 ["Who played Wolverine?","Johnny Depp","Daniel Radcliff","Hugh Jackman",3],
@@ -214,7 +214,7 @@ final_questions = [["Which metal remains a liquid at room temperature?","mercury
 ["What is the 4th letter of the Greek alphabet?","delta"],
 ["sodium metal is kept under?","kerosene"],
 ["which mineral is radium obtained from?","uranium"],
-["In which decade was cricket's first World Cup Final played?","1970"],
+["In which decade was cricket's first World Cup Final played?","1970","70s"],
 ['What company was initially know as "Blue Ribbon Sports"?',"nike"],
 ['Which company designed the "Betamax" video cassette format?',"sony"],
 ["What is the currency of Poland?","zloty"],
@@ -301,7 +301,7 @@ final_questions = [["Which metal remains a liquid at room temperature?","mercury
 ["What is Cynophobia the fear of?","dogs","dog"],
 ["The Flag of the European Union has how many stars on it?","12","twelve"]]
 
-final_chase_answers = ["mercury","graphite","h2o","sodium carbonate","diamond","helium","iron oxide","hydrogen",
+final_chase_answers = ["mercury","gallium","graphite","h2o","sodium carbonate","diamond","helium","iron oxide","hydrogen",
 "teflon","fertiliser","carbon dioxide","kerosene","uranium","1970","sony","one","faceoff",
 "four","instruction","courage","james watt","1996","body pillow","2012","1995","1982","south america","microsoft","5",
 "disqualification","black","evander holyfield","michael owen","jack","uruguay","butterfly",
@@ -319,16 +319,27 @@ choice = None
 FORMATTING = 20
 PLAY = "p"
 HELP = "h"
+TEAM_PLAY = "m"
 QUIT = "q"
 TEST = "t"
 chaser_choice = None
 used_multi_question = []
 used_quick_question = []
 used_final_question = []
+used_bot = []
 CHASER_BOARD_LOCATION = "[XXXX]"
 PLAYER_BOARD_LOCATION = "[OOOO]"
 EMPTY_BOARD_LOCATION = "[----]"
 board = ["(MMMM)","[----]","[----]","[----]","[----]","[----]","[----]","[----]","(WWWW)"]
+bots = [["Steve", 56],
+["John", 78],
+["Sarah", 23],
+["Finn", 99],
+["Alex", 45],
+["Ben", 45],
+["Clyde", 45],
+["Dave", 45],
+["Frank", 45]]
 chasers = [["The Wild Animal",76],
 ["The Night Annihilator",69],
 ["The Tutor", 57],
@@ -336,15 +347,19 @@ chasers = [["The Wild Animal",76],
 ["The Hazard", 89]]
 final_num = 0
 final_chase_board = [final_num]
+
+
 def menu(choice):
     while choice is None:
         print("""P: Play
+M: Multi-Player
 H: Help
 Q: Quit
 T: Test""")
         choice = input("Enter a Choice: ").lower().strip()
     print("=" * FORMATTING)
     return choice
+
 
 def int_input(prompt):
     while True:
@@ -354,8 +369,32 @@ def int_input(prompt):
         except ValueError as e:
             print("Please enter a integer")
 
-def play():
-    board = ["(MMMM)","[----]","[----]","[----]","[----]","[----]","[----]","[----]","(WWWW)"]
+
+def bot_game():
+    global total_cash, num_bots, successful_bots
+    bot_rounds = num_bots
+    while bot_rounds > 0:
+        random_bot = randint(0,(len(bots)-1))
+        while random_bot in used_bot:
+            random_bot = randint(0,(len(bots)-1))
+        used_bot.append(random_bot)
+        bot_teammate = bots[random_bot][0]
+        bot_rounds -= 1
+        bot_points = randint(1,15)
+        bot_cash = bot_points * 1000
+        bot_luck = randint(1,100)
+        if bots[random_bot][1] >= bot_luck:
+            print(f"{bot_teammate} Bet the pursuer and got ${int(bot_cash)}")
+            total_cash = total_cash + bot_cash
+            successful_bots = successful_bots + 1
+        else:
+            print(f"The pursuer caught {bot_teammate} with ${int(bot_cash)}")
+    print(f"Your team got ${total_cash} in total")
+        
+
+
+def quick_quiz():
+    global cash, player_location
     minute = 60
     start_time = time.time()
     points = 0
@@ -385,7 +424,6 @@ def play():
             points += 1
         else:
             print("Incorrect")
-
     if points == 0:
         points = len(used_quick_question) - (len(used_quick_question) * 2)
     cash = points * 1000
@@ -395,7 +433,7 @@ def play():
         print(f"""The Pursuer gives you three options
 A: ${int(cash * 2.5)} 2 away from pursuer
 B: ${cash} 3 away from pursuer
-C: ${int(cash *0.5)} 4 away pursuer""")
+C: ${int(cash * 0.5)} 4 away pursuer""")
         money_choice = input("Enter a Choice: ").lower().strip()
         if money_choice == "a":
             cash = cash * 2.5
@@ -407,17 +445,21 @@ C: ${int(cash *0.5)} 4 away pursuer""")
             player_location = 5
         else:
             print("Enter a vaild option")
+
+
+def multi_choice_quiz():
+    global assigned_chaser, player_location, cash, chaser_num
     chaser_location = 1
     board[chaser_location] = CHASER_BOARD_LOCATION
     board[player_location] = PLAYER_BOARD_LOCATION
     chaser_num = randint(0,4)
-    assinged_chaser = chasers[chaser_num][0]
-    print(f"Your pursuer is {assinged_chaser}")
+    assigned_chaser = chasers[chaser_num][0]
+    print(f"Your pursuer is {assigned_chaser}")
     for i in board:
-            print(i)
+        print(i)
     while player_location != 8:
         if player_location == chaser_location:
-            print(f"you have been caught by {assinged_chaser}")
+            print(f"you have been caught by {assigned_chaser}")
             break
         random_question = randint(0,(len(multi_questions)-1))
         while random_question in used_multi_question:
@@ -439,135 +481,297 @@ C: ${int(cash *0.5)} 4 away pursuer""")
         else:
             chaser_choice = randint(1,3)
         if chaser_choice == multi_questions[random_question][4]:
-            print(f"{assinged_chaser} Picked {chaser_choice}")
+            print(f"{assigned_chaser} Picked {chaser_choice}")
             board[chaser_location] = EMPTY_BOARD_LOCATION
             chaser_location += 1
             board[chaser_location] = CHASER_BOARD_LOCATION
         else:
-            print(f"{assinged_chaser} Picked {chaser_choice}")
+            print(f"{assigned_chaser} Picked {chaser_choice}")
         print(f"The correct answer was {multi_questions[random_question][4]}")
         for i in board:
             print(f"{i}")
     if player_location == chaser_location:
         print("YOU LOSE")
+        cash = 0
     else:
         print(f"Congrats You made it home with ${int(cash)}")
-        print("Time for the final pursuit")
-        enter = input("Press 'Enter' to start ")
-        money_choice = None
-        minute = 120
-        start_time = time.time()
-        points = 0
-        used_final_question = []
-        while True:
-            if time.time() - start_time > minute:
-                print("out of time")
-                break
+
+
+def final_chase():
+    global cash
+    random_chaser = randint(0,4)
+    assigned_chaser = chasers[random_chaser][0]
+    print("Time for the final pursuit")
+    enter = input("Press 'Enter' to start ")
+    minute = 120
+    start_time = time.time()
+    points = 0
+    used_final_question = []
+    while True:
+        if time.time() - start_time > minute:
+            print("out of time")
+            break
+        random_final_question = randint(0,len(final_questions)-1)
+        while random_final_question in used_final_question:
             random_final_question = randint(0,len(final_questions)-1)
-            while random_final_question in used_final_question:
-                random_final_question = randint(0,len(final_questions)-1)
-            used_final_question.append(random_final_question)
+        used_final_question.append(random_final_question)
+        print(final_questions[random_final_question][0])
+        print(f"Time: {minute - round(time.time() - start_time)} seconds")
+        user_answer = input("").lower().replace(" ","")
+        if user_answer == "p":
+            pass
+        elif user_answer == final_questions[random_final_question][1]:
+            print("Correct")
+            points += 1
+            print("[]"* (points-1) + f"[{points}]")
+
+        elif len(final_questions[random_final_question]) > 2 and user_answer == final_questions[random_final_question][2]:
+            print("Correct")
+            points += 1
+            print("[]"* (points-1) + f"[{points}]")
+
+        else:
+            print("Incorrect")
+    print(f"You got {points} correct")
+    print("pursuers turn")
+    print(assigned_chaser)
+    chaser_points = 0
+    minute = 120
+    start_time = time.time()
+    used_final_question = []
+    while chaser_points < points:
+        if time.time() - start_time > minute:
+            print("out of time")
+            break
+        random_final_question = randint(0,(len(final_questions)-1))
+        while random_final_question in used_final_question:
+            random_final_question = randint(0,(len(final_questions)-1))
+        used_final_question.append(random_final_question)
+        print(final_questions[random_final_question][0])
+        print(f"Time: {minute - round(time.time() - start_time)} seconds")
+        random_thinking = randint(3,6)
+        time.sleep(random_thinking)
+        if len(used_quick_question) >= 100:
+            print("Good Job you answers all the questions")
+            break
+        chaser_luck = randint(0,105)
+        if chaser_luck <= chasers[random_chaser][1]:
+            chaser_choice = final_questions[random_final_question][1]
+        elif chaser_luck >= 100:
+            chaser_choice = "p"
+        else:
+            random_answer = randint(0,len(final_chase_answers))
+            chaser_choice = final_chase_answers[random_answer].replace(" ","")
+        print(chaser_choice)
+        if chaser_choice == final_questions[random_final_question][1]:
+            print("Correct")
+            chaser_points += 1
+            print("[]"* ((points-1)-chaser_points) + f"[{points - chaser_points}]")
+        elif chaser_choice == "p":
+            pass
+        else:
+            print("Incorrect")
+            print("=" * FORMATTING)
+            print("The Pursuer got it wrong this means you can push them back")
+            random_final_question = randint(0,(len(final_questions)-1))
             print(final_questions[random_final_question][0])
-            print(f"Time: {minute - round(time.time() - start_time)} seconds")
             user_answer = input("").lower().replace(" ","")
             if user_answer == "p":
                 pass
             elif user_answer == final_questions[random_final_question][1]:
                 print("Correct")
-                points += 1
-                print("[]"* (points-1) + f"[{points}]")
+                print("=" * FORMATTING)
+                print("You pushed the Pursuer back one space")
+                chaser_points -= 1
+                print("[]"* ((points-1)-chaser_points) + f"[{points - chaser_points}]")
+                print("=" * FORMATTING)
 
             elif len(final_questions[random_final_question]) > 2 and user_answer == final_questions[random_final_question][2]:
                 print("Correct")
-                points += 1
-                print("[]"* (points-1) + f"[{points}]")
-
-            else:
-                print("Incorrect")
-        print(f"You got {points} correct")
-        print("pursuers turn")
-        print(assinged_chaser)
-        chaser_points = 0
-        minute = 60
-        start_time = time.time()
-        used_final_question = []
-        while chaser_points < points:
-            if time.time() - start_time > minute:
-                print("out of time")
-                break
-            random_final_question = randint(0,(len(final_questions)-1))
-            while random_final_question in used_final_question:
-                random_final_question = randint(0,(len(final_questions)-1))
-            used_final_question.append(random_final_question)
-            print(final_questions[random_final_question][0])
-            print(f"Time: {minute - round(time.time() - start_time)} seconds")
-            random_thinking = randint(3,6)
-            time.sleep(random_thinking)
-            if len(used_quick_question) >= 100:
-                print("Good Job you answers all the questions")
-                break
-            chaser_luck = randint(0,105)
-            if chaser_luck <= chasers[chaser_num][1]:
-                chaser_choice = final_questions[random_final_question][1]
-            elif chaser_luck >= 100:
-                chaser_choice = "p"
-            else:
-                random_answer = randint(0,len(final_chase_answers))
-                chaser_choice = final_chase_answers[random_answer].replace(" ","")
-            print(chaser_choice)
-            if chaser_choice == final_questions[random_final_question][1]:
-                print("Correct")
-                chaser_points += 1
-                print("[]"* ((points-1)-chaser_points) + f"[{points - chaser_points}]")
-            elif chaser_choice == "p":
-                pass
-            else:
-                print("Incorrect")
                 print("=" * FORMATTING)
-                print("The Pursuer got it wrong this means you can push them back")
-                random_final_question = randint(0,(len(final_questions)-1))
-                print(final_questions[random_final_question][0])
-                user_answer = input("").lower().replace(" ","")
-                if user_answer == "p":
-                    pass
-                elif user_answer == final_questions[random_final_question][1]:
-                    print("Correct")
-                    print("=" * FORMATTING)
-                    print("You pushed the Pursuer back one space")
-                    chaser_points -= 1
-                    print("[]"* ((points-1)-chaser_points) + f"[{points - chaser_points}]")
-                    print("=" * FORMATTING)
-
-                elif len(final_questions[random_final_question]) > 2 and user_answer == final_questions[random_final_question][2]:
-                    print("Correct")
-                    print("=" * FORMATTING)
-                    print("You pushed the Pursuer back one space")
-                    chaser_points -= 1
-                    print("[]"* ((points-1)-chaser_points) + f"[{points - chaser_points}]")
-                    print("=" * FORMATTING)
+                print("You pushed the Pursuer back one space")
+                chaser_points -= 1
+                print("[]"* ((points-1)-chaser_points) + f"[{points - chaser_points}]")
+                print("=" * FORMATTING)
+            
+            elif user_answer == "p":
+                pass
+                print("=" * FORMATTING)
+            
+            else:
+                print("=" * FORMATTING)
+                print("Incorrect")
+                print("The Pursuer stays where they are")
+                print("=" * FORMATTING)
                 
-                elif user_answer == "p":
-                    pass
-                    print("=" * FORMATTING)
-                
-                else:
-                    print("=" * FORMATTING)
-                    print("Incorrect")
-                    print("The Pursuer stays where they are")
-                    print("=" * FORMATTING)
 
-        if chaser_points >= points:
-            print("The pursuer has caught you YOU LOSE")
-        elif chaser_points < points:
-            print("CONGRATULATIONS YOU HAVE WON THE PURSUIT")
-            print(f"You get ${cash}")
-            print("=" * FORMATTING)
-        play_again = input("Do you want to play again (y or n) ")
-        if play_again == "y":
-            print("loading...")
-            play()
+    if chaser_points >= points:
+        print("The pursuer has caught you YOU LOSE")
+    elif chaser_points < points:
+        print("CONGRATULATIONS YOU HAVE WON THE PURSUIT")
+        print(f"You get ${int(cash)}")
+        print("=" * FORMATTING)
+
+
+def team_final_chase():
+    if num_bots == 1:
+        chance = 25
+    elif num_bots == 2 or num_bots == 3:
+        chance = 50
+    random_chaser = randint(0,4)
+    assigned_chaser = chasers[random_chaser][0]
+    print("Time for the final pursuit")
+    enter = input("Press 'Enter' to start ")
+    minute = 120
+    start_time = time.time()
+    points = 0
+    used_final_question = []
+    while True:
+        if time.time() - start_time > minute:
+            print("out of time")
+            break
+        random_final_question = randint(0,len(final_questions)-1)
+        while random_final_question in used_final_question:
+            random_final_question = randint(0,len(final_questions)-1)
+        used_final_question.append(random_final_question)
+        print(final_questions[random_final_question][0])
+        print(f"Time: {minute - round(time.time() - start_time)} seconds")
+        bot_answers = randint(1,100)
+        if bot_answers <= chance:
+            smart_bot = randint(1,50)
+            if smart_bot >= 35:
+                time.sleep(randint(3,6))
+                print(final_questions[random_final_question][1])
+            else:
+                print(final_chase_answers[randint(0,(len(final_chase_answers)-1))])
         else:
+            user_answer = input("").lower().replace(" ","")
+
+        if user_answer == "p":
             pass
+        elif user_answer == final_questions[random_final_question][1]:
+            print("Correct")
+            points += 1
+            print("[]"* (points-1) + f"[{points}]")
+
+        elif len(final_questions[random_final_question]) > 2 and user_answer == final_questions[random_final_question][2]:
+            print("Correct")
+            points += 1
+            print("[]"* (points-1) + f"[{points}]")
+
+        else:
+            print("Incorrect")
+    print(f"You got {points} correct")
+    print("pursuers turn")
+    print(assigned_chaser)
+    player_time = 0
+    chaser_points = 0
+    minute = 120
+    start_time = time.time()
+    used_final_question = []
+    while chaser_points < points:
+        if time.time() - start_time > minute:
+            print("out of time")
+            break
+        random_final_question = randint(0,(len(final_questions)-1))
+        while random_final_question in used_final_question:
+            random_final_question = randint(0,(len(final_questions)-1))
+        used_final_question.append(random_final_question)
+        print(final_questions[random_final_question][0])
+        print(f"Time: {minute - round(time.time() - start_time)} seconds")
+        random_thinking = randint(3,6)
+        time.sleep(random_thinking)
+        if len(used_quick_question) >= 100:
+            print("Good Job you answers all the questions")
+            break
+        chaser_luck = randint(0,105)
+        if chaser_luck <= chasers[random_chaser][1]:
+            chaser_choice = final_questions[random_final_question][1]
+        elif chaser_luck >= 100:
+            chaser_choice = "p"
+        else:
+            random_answer = randint(0,(len(final_chase_answers)-1))
+            chaser_choice = final_chase_answers[random_answer].replace(" ","")
+        print(chaser_choice)
+        if chaser_choice == final_questions[random_final_question][1]:
+            print("Correct")
+            chaser_points += 1
+            print("[]"* ((points-1)-chaser_points) + f"[{points - chaser_points}]")
+        elif chaser_choice == "p":
+            pass
+        else:
+            print("Incorrect")
+            print("=" * FORMATTING)
+            print("The Pursuer got it wrong this means you can push them back")
+            random_final_question = randint(0,(len(final_questions)-1))
+            print(final_questions[random_final_question][0])
+            user_answer = input("").lower().replace(" ","")
+            if user_answer == "p":
+                pass
+            elif user_answer == final_questions[random_final_question][1]:
+                print("Correct")
+                print("=" * FORMATTING)
+                print("You pushed the Pursuer back one space")
+                chaser_points -= 1
+                print("[]"* ((points-1)-chaser_points) + f"[{points - chaser_points}]")
+                print("=" * FORMATTING)
+
+            elif len(final_questions[random_final_question]) > 2 and user_answer == final_questions[random_final_question][2]:
+                print("Correct")
+                print("=" * FORMATTING)
+                print("You pushed the Pursuer back one space")
+                chaser_points -= 1
+                print("[]"* ((points-1)-chaser_points) + f"[{points - chaser_points}]")
+                print("=" * FORMATTING)
+            
+            elif user_answer == "p":
+                pass
+                print("=" * FORMATTING)
+            
+            else:
+                print("=" * FORMATTING)
+                print("Incorrect")
+                print("The Pursuer stays where they are")
+                print("=" * FORMATTING)
+
+    if chaser_points >= points:
+        print("The pursuer has caught you YOU LOSE")
+    elif chaser_points < points:
+        print("CONGRATULATIONS YOUR TEAM WON THE PURSUIT")
+        print(f"Your take is ${int(total_cash%4)}")
+        print("=" * FORMATTING)
+
+
+def play():
+    quick_quiz()
+    multi_choice_quiz()
+    final_chase()
+
+
+def team_play():
+    global successful_bots, num_bots, total_cash, cash
+    successful_bots = 0
+    total_cash = 0
+    num_bots = 4
+    while True:
+        num_players = int_input("How many players are playing ")
+        if num_players == 0:
+            print("You must have at least one player")
+        elif num_players > 4:
+            print("You cant have more than four players")
+        else:
+            break
+    num_bots -= num_players
+    print(num_bots)
+    rounds = num_players
+    while rounds > 0:
+        enter = input("Press 'Enter' to start ")
+        quick_quiz()
+        multi_choice_quiz()
+        total_cash = total_cash + cash
+        rounds -= 1
+    bot_game()
+    team_final_chase()
 
 def help():
     option = None
@@ -621,7 +825,6 @@ def test():
     password = input("Enter Password ").lower().strip()
     if password == "gaming":
         print("no")
-        
     else:
         print("Incorrect Password")
 
@@ -631,6 +834,8 @@ while loop:
     choice = menu(choice)
     if choice == PLAY:
         play()
+    elif choice == TEAM_PLAY:
+        team_play()
     elif choice == HELP:
         help()
     elif choice == QUIT:
