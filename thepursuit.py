@@ -105,7 +105,7 @@ multi_questions = [["What’s the shortcut for the “copy” function on most c
 ["What does “HTTP” stand for?","HyperText Transfer Protocol","HyperType Target Page","HyperTest The Protocals",1],
 ["What is the name of the man who launched eBay back in 1995?","Jeff Bezos","Johnny Sins","Pierre Omidyar",3],
 ["Which email service is owned by Microsoft?","Yahoo","Hotmail","Gmail",2],
-["Google Chrome, Safari, Firefox, and Explorer are different types of what?","Search Engines","Web browsers","Cringe",3],
+["Google Chrome, Safari, Firefox, and Explorer are different types of what?","Search Engines","Web browsers","Cringe",2],
 ["What was Twitter’s original name?","Blue Bird","twttr","Tweet",2],
 ["How many books are in the Catholic Bible?","Forty-two","Seventy-three","Sixty-seven",2],
 ["How many fish were used to feed the 5,000 along with the loaves?","Two","Six","Three",1],
@@ -210,7 +210,7 @@ final_questions = [["Which metal remains a liquid at room temperature?","mercury
 ["When an iron nail rusts, what oxide is formed?","ironoxide","iron"],
 ["The element common to all acids is?","hydrogen"],
 ["Non stick cooking utensils are coated with?","teflon"],
-["Potassium nitrate is commonly used in?","fertiliser"],
+["Potassium nitrate is commonly used in?","fertiliser","fertilizer"],
 ["What is the 4th letter of the Greek alphabet?","delta"],
 ["sodium metal is kept under?","kerosene"],
 ["which mineral is radium obtained from?","uranium"],
@@ -348,7 +348,6 @@ chasers = [["The Wild Animal",76],
 ["The Hazard", 89]]
 final_num = 0
 final_chase_board = [final_num]
-
 
 def menu(choice):
     while choice is None:
@@ -783,9 +782,8 @@ def team_play():
         print(f"Player {player_num}")
         player_num += 1
         enter = input("Press 'Enter' to start ")
-        # quick_quiz()
-        # multi_choice_quiz()
-        cash = 9000
+        quick_quiz()
+        multi_choice_quiz()
         total_cash = total_cash + cash
         rounds -= 1
     bot_game()
@@ -796,12 +794,24 @@ def help():
     repeat = True
     while repeat:
         print("\033[31;40mDISCLAMER: This game is heavily based of The Chase game show\033[00m")
-        print("""\033[4;34;40mQ: Quick Question Help
+        print("""\033[4;34;40mP: Play Help
+T: Multiplayer Help
+Q: Quick Question Help
 M: multiple Choice Help
 F: Final Pursuit Help
 E: Exit\033[00m""")
         option = input("Enter a Choice: ").lower().strip()
-        if option == "q":
+        if option == "p":
+            print("""This mode is a 1 on 1 game of you versus the
+Pursuer you will play each of the stages once and if you beat the
+Pursuer you win""")
+        elif option == "t":
+            print("""This mode you are first asked how many players are playing
+you will then each play the quick question and multichoice question stages all of your teams
+total will be added together and you will play a team final pursuit
+if you have less than four players you will get 'bot' teammates to equal a total of
+four""")
+        elif option == "q":
             print("=" * FORMATTING)
             print("""Quick Questions Help:
 Each questions answer will NOT have any words like THE, A, or any special characters
@@ -839,14 +849,6 @@ questions right. """)
         else:
             print("Enter a valid choice ")
 
-def test():
-    password = input("Enter Password ").lower().strip()
-    if password == "gaming":
-        print("no")
-    else:
-        print("Incorrect Password")
-
-
 while loop:
     choice = None
     choice = menu(choice)
@@ -858,7 +860,5 @@ while loop:
         help()
     elif choice == QUIT:
         loop = False
-    elif choice == TEST:
-        test()
     else:
         print("Enter a valid choice ")
